@@ -2,6 +2,7 @@ package com.Spring.SpringBoot.GettingStarted.Controller;
 
 import com.Spring.SpringBoot.GettingStarted.Entity.Students;
 import com.Spring.SpringBoot.GettingStarted.Service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class StudentControllerClass {
     @Autowired
     private StudentService studentService;
     @PostMapping("/students")
-    public Students createStudent(@RequestBody Students students){
+    public Students createStudent(@Valid @RequestBody Students students){
         return studentService.createStudent(students);
     }
     @GetMapping("/students")
