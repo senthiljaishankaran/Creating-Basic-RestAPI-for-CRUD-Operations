@@ -32,4 +32,8 @@ public class StudentControllerClass {
     public Students updatingData(@PathVariable("id") Long studentsId,@RequestBody Students students){
         return studentService.updatingData(studentsId,students);
     }
+    @GetMapping("/students/name/{name}")
+    public Students fetchStudentByName(@PathVariable("name") String studentName){
+    return studentService.fetchStudentByName(studentName);
+    }
 }

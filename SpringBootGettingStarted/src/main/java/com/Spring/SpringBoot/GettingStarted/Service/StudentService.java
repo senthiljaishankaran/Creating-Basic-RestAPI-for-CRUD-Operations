@@ -14,4 +14,6 @@ public interface StudentService {
     public void deletingById(Long studentsId);
 
     public Students updatingData(Long studentsId, Students students);
+
+    public Students fetchStudentByName(String studentName);
 }

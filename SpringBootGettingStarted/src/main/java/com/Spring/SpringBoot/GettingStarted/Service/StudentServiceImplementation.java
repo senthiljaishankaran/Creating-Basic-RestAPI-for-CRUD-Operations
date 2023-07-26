@@ -44,4 +44,9 @@ public class StudentServiceImplementation implements StudentService{
         }
         return studentRepository.save(studentsDatabase);
     }
+
+    @Override
+    public Students fetchStudentByName(String studentName) {
+        return studentRepository.findByStudentNameIgnoreCase(studentName);
+    }
 }
