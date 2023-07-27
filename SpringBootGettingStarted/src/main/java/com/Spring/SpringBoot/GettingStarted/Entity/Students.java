@@ -5,8 +5,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Students {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,45 +24,4 @@ public class Students {
     private String studentDepartment;
     private String studentGrade;
 
-    public Students(){
-    }
-
-    public Students(Long studentId, String studentName, String studentDepartment, String studentGrade) {
-        this.studentId = studentId;
-        this.studentName = studentName;
-        this.studentDepartment = studentDepartment;
-        this.studentGrade = studentGrade;
-    }
-
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getStudentDepartment() {
-        return studentDepartment;
-    }
-
-    public void setStudentDepartment(String studentDepartment) {
-        this.studentDepartment = studentDepartment;
-    }
-
-    public String getStudentGrade() {
-        return studentGrade;
-    }
-
-    public void setStudentGrade(String studentGrade) {
-        this.studentGrade = studentGrade;
-    }
 }

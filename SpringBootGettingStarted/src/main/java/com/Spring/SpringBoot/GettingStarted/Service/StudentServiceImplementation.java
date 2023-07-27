@@ -1,12 +1,14 @@
 package com.Spring.SpringBoot.GettingStarted.Service;
 
 import com.Spring.SpringBoot.GettingStarted.Entity.Students;
+import com.Spring.SpringBoot.GettingStarted.Error.StudentNotFoundException;
 import com.Spring.SpringBoot.GettingStarted.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImplementation implements StudentService{
@@ -21,8 +23,12 @@ public class StudentServiceImplementation implements StudentService{
         return studentRepository.findAll();
     }
     @Override
-    public Students fetchingById(Long studentsId) {
-        return studentRepository.findById(studentsId).get();
+    public Students fetchingById(Long studentsId) throws StudentNotFoundException {
+        Optional<Students> students= studentRepository.findById(studentsId);
+        if(!students.isPresent()){
+            throw new StudentNotFoundException("Student Info Not Available");
+        }
+        return students.get();
     }
 
     @Override

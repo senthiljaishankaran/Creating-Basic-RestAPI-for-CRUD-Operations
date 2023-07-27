@@ -1,6 +1,7 @@
 package com.Spring.SpringBoot.GettingStarted.Service;
 
 import com.Spring.SpringBoot.GettingStarted.Entity.Students;
+import com.Spring.SpringBoot.GettingStarted.Error.StudentNotFoundException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface StudentService {
 
     public List<Students> fetchingStudents();
 
-    public Students fetchingById(Long studentsId);
+    public Students fetchingById(Long studentsId) throws StudentNotFoundException;
 
     public void deletingById(Long studentsId);
 
